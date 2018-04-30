@@ -1,10 +1,11 @@
 'use strict';
 
-const LinkedList = require(./linked-list);
+const LinkedList = require('./linked-list');
 
 class Stack {
   constructor() {
-    this._storage = new LinkedList;
+    this._storage = new LinkedList();
+    this.head = null;
   }
 
   push(value) {
@@ -12,12 +13,12 @@ class Stack {
   }
 
   pop() {
-    this.head = this.head.next;
-    return this.head;
+    this._storage = this.head.next;
+    return this._storage;
   }
 
   peek() {
-    return this.head.value;
+    return this._storage.head.value;
   }
 
   isEmpty() {
@@ -27,9 +28,8 @@ class Stack {
     if (this.head) {
       return false;
     }
+    return undefined;
   }
-};
+}
 
 module.exports = Stack;
-
-
